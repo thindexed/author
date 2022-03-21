@@ -15,7 +15,7 @@ module.exports = {
     filename: "bundle.js"
   },
   resolve: {
-    modules: [projectDir + '/node_modules', projectDir + '/src/', commonDir],
+    modules: [projectDir + '/node_modules', projectDir + '/src/'],
     extensions: ['.json', '.js', '.css']
   },
   plugins: [
