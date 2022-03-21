@@ -35,7 +35,8 @@
     "style-loader": "^3.3.1",
     "svg-inline-loader": "^0.8.2",
     "webpack": "^5.70.0",
-    "webpack-cli": "^4.9.2"
+    "webpack-cli": "^4.9.2",
+    "short-uuid": "^4.2.0"
   },
   "dependencies": {
     "axios": "^0.26.1",
@@ -45,7 +46,6 @@
     "markdown-it-asciimath": "^1.0.0",
     "markdown-it-container": "^2.0.0",
     "run": "^1.4.0",
-    "sanitize-filename": "^1.6.3",
-    "short-uuid": "^4.2.0"
+    "sanitize-filename": "^1.6.3"
   }
 }
