@@ -1,4 +1,4 @@
-const shortid = require('shortid')
+const shortid = require('short-uuid')
 
 export default class Page {
 

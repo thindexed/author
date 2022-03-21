@@ -1,9 +1,9 @@
-let inputPrompt = require("../../common/js/InputPrompt")
+let inputPrompt = require("../common/js/InputPrompt")
 
 import commandStack from "./commands/CommandStack"
 import State from "./commands/State"
 
-const shortid = require('shortid')
+const shortid = require('short-uuid')
 const Page = require("./model/page")
 const MarkdownEditor = require("./editor/markdown/editor")
 const BrainEditor = require("./editor/brain/editor")
