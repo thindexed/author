@@ -11,7 +11,7 @@ export default {
     user: {
       list:   path  => `../api/user/sheet/list?path=${path}`,
       get:    file  => `../api/user/sheet/get?filePath=${file}`,
-      image:  file  => `../_common/images/files_markdown.svg`,
+      image:  file  => `../common/images/files_markdown.svg`,
       delete:          `../api/user/sheet/delete`,
       rename:          `../api/user/sheet/rename`,
       save:            `../api/user/sheet/save`,
@@ -21,7 +21,7 @@ export default {
     global:{
       list:   path  => `../api/global/sheet/list?path=${path}`,
       get:    file  => `../api/global/sheet/get?filePath=${file}`,
-      image:  file  => `../_common/images/files_markdown.svg`,
+      image:  file  => `../common/images/files_markdown.svg`,
       delete:          `../api/global/sheet/delete`,
       rename:          `../api/global/sheet/rename`,
       save:            `../api/global/sheet/save`,

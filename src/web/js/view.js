@@ -1,4 +1,4 @@
-let inputPrompt = require("../../_common/js/InputPrompt")
+let inputPrompt = require("../../common/js/InputPrompt")
 
 import commandStack from "./commands/CommandStack"
 import State from "./commands/State"
