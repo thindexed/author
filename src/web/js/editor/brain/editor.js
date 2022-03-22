@@ -2,8 +2,8 @@ import Split from "split.js";
 import reader from "./io/reader"
 import writer from "./io/writer"
 
-let View = require("./view")
-let Palette = require("./palette")
+import View from "./view"
+import Palette from "./palette"
 
 export default class Editor {
 
