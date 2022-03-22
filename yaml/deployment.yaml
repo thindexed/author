@@ -15,4 +15,4 @@ spec:
     spec:
       containers:
       - name: author
-        image: docker.io/freegroup/thindexed-login:0.1.0-6
+        image: docker.io/freegroup/thindexed-author:0.1.0-10
