@@ -4,11 +4,11 @@ import commandStack from "./commands/CommandStack"
 import State from "./commands/State"
 
 const shortid = require('short-uuid')
-const Page = require("./model/page")
-const MarkdownEditor = require("./editor/markdown/editor")
-const BrainEditor = require("./editor/brain/editor")
-const ImageEditor = require("./editor/image/editor")
-import Palette from "./palette"
+const Page = require("./model/page").default
+const MarkdownEditor = require("./editor/markdown/editor").default
+const BrainEditor = require("./editor/brain/editor").default
+const ImageEditor = require("./editor/image/editor").default
+const Palette = require("./palette").default
 
 export default class View {
 

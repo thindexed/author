@@ -48,31 +48,33 @@ window.conf = conf
 
 
 $(window).load(function () {
+  socket = io( { path: '/socket.io'})
 
+  
   // export all required classes for deserialize JSON with "eval"
   // "eval" code didn't sees imported class or code
   //
-  let global = require("./global")
-  for (let k in global) window[k] = global[k];
 
-  socket = io({
-      path: '/socket.io'
-    })
-
-  // remove the fileOpen/Save stuff if we run in a "serverless" mode. e.g. on gh-pages
+  // Init the UI after we have receive the UI/UX permissions of this kind of installation
   // (fake event from the socket.io mock )
   //
   axios.get("../permissions").then( (response) => {
     let permissions = response.data
+    let global = require("./global")
+    for (let k in global.default) window[k] = global.default[k];
+
     // we must load the "shape/index.js" in the global scope.
     //
-    $.getScript(conf.shapes.url + "index.js", function () {
-      app = require("./application")
+    var s = document.createElement("script");
+    s.setAttribute("src",conf.shapes.url + "index.js");
+    s.onload = function(){
+      app = require("./application").default
       app.init(permissions)
       $(".loader").fadeOut(500, function () {
         $(this).remove();
       })
       inlineSVG.init()
-    })
+    }
+    document.head.appendChild(s);
   })
 })
