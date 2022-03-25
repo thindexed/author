@@ -129,7 +129,7 @@ class Application {
 
 
   fileShare() {
-    let json = this.view.document
+    let json = this.document.toJSON()
     storage.saveFile(json, "unused", "shared")
       .then(( response) => {
         let data = response.data
