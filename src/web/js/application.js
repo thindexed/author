@@ -121,10 +121,13 @@ class Application {
       this.view.onCommitEdit()
       if (this.permissions.sheets.create && this.permissions.sheets.update) {
         // allow the user to enter/change the file name....
-        fileSave.show(this.currentFile, this.storage, this.document, description)
+        fileSave.show(this.currentFile, this.storage, this.document, description).then( internal_callback)
       } else if (this.permissions.sheets.create) {
         // just save the file with a generated filename. It is a codepen-like modus
-        fileSave.save(this.currentFile, this.storage, this.document, description)
+        fileSave.save(this.currentFile, this.storage, this.document, description).then( internal_callback )
+      }
+      else{
+        reject()
       }
     })
   }
