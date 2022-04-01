@@ -1,5 +1,4 @@
-let inputPrompt = require("../common/js/InputPrompt")
-
+import inputPrompt from "../common/js/InputPrompt"
 import commandStack from "./commands/CommandStack"
 import State from "./commands/State"
 
@@ -156,7 +155,7 @@ export default class View {
     // commit the current changes if an editor is active
     this.onCommitEdit()
 
-    inputPrompt.show("Add Pager", "Page name", value => {
+    inputPrompt.show("Add Page", "Page name", value => {
       commandStack.push(new State(this.app))
       let page = new Page()
       page.name = value

@@ -48,6 +48,8 @@ window.conf = conf
 
 
 $(window).load(function () {
+  document.title = conf.appName
+
   socket = io( { path: '/socket.io'})
 
   

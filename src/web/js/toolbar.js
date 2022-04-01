@@ -20,8 +20,8 @@ export default class Toolbar {
     this.shareButton.off("click").on("click", () => {
       this.shareButton.tooltip("hide")
       if (this.app.hasUnsavedChanges) {
-        // file must be save before sharing
-        app.fileSave(() => {
+        // File must be saved before sharing
+        app.fileSave("File must be saved before you can share it").then(() => {
           app.fileShare()
         })
       } else {
@@ -37,8 +37,8 @@ export default class Toolbar {
           && ((file.scope === "global" && permissions.sheets.global.update === true)
             ||
             (file.scope === "user" && permissions.sheets.update === true))) {
-          // file must be save before sharing
-          app.fileSave(() => {
+          // File must be save before sharing
+          app.fileSave("File must be saved before you can export it to PDF").then(() => {
             window.open(`../api/${file.scope}/sheet/pdf?file=${file.name}`, "__blank")
           })
         } else {

@@ -28,7 +28,7 @@
     .sectionContent {
       &[data-type='image']{
         text-align: center;
-
+        max-width: 100%;
 
         #editor-container {
           display: initial;
@@ -86,15 +86,14 @@
       }
       &[data-type='spacer']{
         position: relative;
-        height:20px;
+        height:30px;
         text-align: center;
         .tinyFlyoverMenu{
           visibility:hidden;
-          position: initial;
-          display:inline;
-          top: 0;
-          left: 46%;
           font-size:15px;
+          position: relative;
+          display: inline-block;
+          top: 0px;
           &::before{
             padding-right:5px;
           }

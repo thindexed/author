@@ -101,30 +101,32 @@ class Application {
   }
 
 
-  fileSave(callback) {
-    let internal_callback = () => {
-      this.hasUnsavedChanges = false
-      toast("Saved")
-      $("#editorFileSave div").removeClass("highlight")
-      this.filePane.refresh(conf, this.permissions.sheets, this.currentFile)
-      if(callback) callback()
-    }
-
-    // if the user didn't has the access to write "global" files, the scope of the file is changed
-    // // from "global" to "user". In fact the user creates a copy in his/her own repository.
-    //
-    if(this.permissions.sheets.global.update ===false){
-      this.currentFile.scope = "user"
-    }
-
-    this.view.onCommitEdit()
-    if (this.permissions.sheets.create && this.permissions.sheets.update) {
-      // allow the user to enter/change the file name....
-      fileSave.show(this.currentFile, this.storage, this.document, internal_callback)
-    } else if (this.permissions.sheets.create) {
-      // just save the file with a generated filename. It is a codepen-like modus
-      fileSave.save(this.currentFile, this.storage, this.document, internal_callback)
-    }
+  fileSave(description="") {
+    return new Promise((resolve, reject) => { 
+      let internal_callback = () => {
+        this.hasUnsavedChanges = false
+        toast("Saved")
+        $("#editorFileSave div").removeClass("highlight")
+        this.filePane.refresh(conf, this.permissions.sheets, this.currentFile)
+        resolve()
+      }
+  
+      // if the user didn't has the access to write "global" files, the scope of the file is changed
+      // // from "global" to "user". In fact the user creates a copy in his/her own repository.
+      //
+      if(this.permissions.sheets.global.update ===false){
+        this.currentFile.scope = "user"
+      }
+  
+      this.view.onCommitEdit()
+      if (this.permissions.sheets.create && this.permissions.sheets.update) {
+        // allow the user to enter/change the file name....
+        fileSave.show(this.currentFile, this.storage, this.document, description)
+      } else if (this.permissions.sheets.create) {
+        // just save the file with a generated filename. It is a codepen-like modus
+        fileSave.save(this.currentFile, this.storage, this.document, description)
+      }
+    })
   }
 
 
@@ -132,8 +134,7 @@ class Application {
     let json = this.document.toJSON()
     storage.saveFile(json, "unused", "shared")
       .then(( response) => {
-        let data = response.data
-        let file = data.filePath
+        let file = response.data.filePath
         shareDialog.show(file)
       })
   }

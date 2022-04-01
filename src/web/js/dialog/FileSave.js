@@ -13,9 +13,10 @@ class Dialog {
             <div class="modal-dialog ">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h4 class="media-heading">Save Sheet</h4>
+                        <h4 class="media-heading">Save Document</h4>
                     </div>
                     <div class="modal-body">
+                        <div class="description"></div>
                         <div class="media">
                             <div class="media-left media-middle">
                                 <a href="#">
@@ -64,8 +65,9 @@ class Dialog {
    *
    * @since 4.0.0
    */
-  show(currentFile, storage, document, callback) {
-
+  show(currentFile, storage, document, description="") {
+    return new Promise( (resolve, reject) => {
+      $("#fileSaveDialog .description").html(description)
       $("#fileSaveDialog .fileName").val(fs.basename(currentFile.name).replace(conf.fileSuffix, ""))
 
       $('#fileSaveDialog').on('shown.bs.modal', (event) => {
@@ -89,17 +91,20 @@ class Dialog {
         name = name.replace(conf.fileSuffix, "")
         name = fs.basename(name) // remove any directories
         currentFile.name = fs.join(fs.dirname(currentFile.name), name + conf.fileSuffix)
-        this.save(currentFile, storage, document, (response)=>{
-          $('#fileSaveDialog').modal('hide')
-          if(typeof callback === "function"){
-            callback(response)
-          }
-        })
+        this.save(currentFile, storage, document)
+          .then( () => {
+            $('#fileSaveDialog').modal('hide')
+            resolve()
+          })
+          .catch( ()=>{
+            reject()
+          })
       })
+    })
   }
 
-  save(currentFile, storage, document, callback){
-    storage.saveFile(document.toJSON(), currentFile.name, currentFile.scope)
+  save(currentFile, storage, document){
+    return storage.saveFile(document.toJSON(), currentFile.name, currentFile.scope)
       .then(( response) => {
         let data = response.data
         currentFile.name = data.filePath
@@ -108,12 +113,8 @@ class Dialog {
           scope: currentFile.scope,
           file: currentFile.name
         }, conf.appName+' | ' + name, window.location.href.split('?')[0] + '?'+currentFile.scope+'=' + currentFile.name)
-        if(typeof callback === "function"){
-          callback(response)
-        }
       });
   }
-
 }
 
 let dialog = new Dialog()

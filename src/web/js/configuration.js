@@ -1,6 +1,7 @@
 export default {
   fileSuffix: ".sheet",
-  appName: "Brainbox Author",
+  fileNew: "NewDocument",
+  appName: "Thindexed Author",
   loginRedirect: "author",
 
   backend: {
