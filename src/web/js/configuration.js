@@ -2,7 +2,10 @@ export default {
   fileSuffix: ".sheet",
   fileNew: "NewDocument",
   appName: "Thindexed Author",
-  loginRedirect: "author",
+
+  fileScreen: {
+    title: "Documentation Library"
+  },
 
   backend: {
     shared: {
