@@ -1,6 +1,7 @@
 import inputPrompt from "../common/js/InputPrompt"
 import commandStack from "./commands/CommandStack"
 import State from "./commands/State"
+import conf from "./configuration"
 
 const shortid = require('short-uuid')
 const Page = require("./model/page").default
