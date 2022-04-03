@@ -151,6 +151,7 @@ export default class View {
     this.app.getDocument().removePage(page)
   }
 
+
   addPage() {
     // commit the current changes if an editor is active
     this.onCommitEdit()
