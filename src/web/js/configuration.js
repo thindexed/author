@@ -4,7 +4,9 @@ export default {
   appName: "Thindexed Author",
 
   fileScreen: {
-    title: "Documentation Library"
+    title: "Documentation Library",
+    addFolderButton: "Folder",
+    addFileButton: "Document"
   },
 
   backend: {
