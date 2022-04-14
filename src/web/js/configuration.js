@@ -1,37 +1,37 @@
 export default {
   fileSuffix: ".sheet",
   fileNew: "NewDocument",
-  appName: "Thindexed Author",
+  appName: "Author",
 
   fileScreen: {
     title: "Documentation Library",
-    addFolderButton: "Folder",
+    addFolderButton: "Library",
     addFileButton: "Document"
   },
 
   backend: {
     shared: {
-      get:    file  => `../api/shared/sheet/get?filePath=${file}`,
-      save:            `../api/shared/sheet/save`,
+      get:    file  => `../sheets/shared/get?filePath=${file}`,
+      save:            `../sheets/shared/save`,
     },
     user: {
-      list:   path  => `../api/user/sheet/list?path=${path}`,
-      get:    file  => `../api/user/sheet/get?filePath=${file}`,
+      list:   path  => `../sheets/user/list?path=${path}`,
+      get:    file  => `../sheets/user/get?filePath=${file}`,
       image:  file  => `../common/images/files_markdown.svg`,
-      delete:          `../api/user/sheet/delete`,
-      rename:          `../api/user/sheet/rename`,
-      save:            `../api/user/sheet/save`,
-      folder:          `../api/user/sheet/folder`
+      delete:          `../sheets/user/delete`,
+      rename:          `../sheets/user/rename`,
+      save:            `../sheets/user/save`,
+      folder:          `../sheets/user/folder`
     },
 
     global:{
-      list:   path  => `../api/global/sheet/list?path=${path}`,
-      get:    file  => `../api/global/sheet/get?filePath=${file}`,
+      list:   path  => `../sheets/global/list?path=${path}`,
+      get:    file  => `../sheets/global/get?filePath=${file}`,
       image:  file  => `../common/images/files_markdown.svg`,
-      delete:          `../api/global/sheet/delete`,
-      rename:          `../api/global/sheet/rename`,
-      save:            `../api/global/sheet/save`,
-      folder:          `../api/global/sheet/folder`
+      delete:          `../sheets/global/delete`,
+      rename:          `../sheets/global/rename`,
+      save:            `../sheets/global/save`,
+      folder:          `../sheets/global/folder`
     }
   },
 

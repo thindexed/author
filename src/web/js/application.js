@@ -25,12 +25,8 @@ class Application {
 
   init(permissions) {
     $("body")
-      .delegate(".mousetrap-pause", "focus", function () {
-        Mousetrap.pause()
-      })
-      .delegate(".mousetrap-pause", "blur", function () {
-        Mousetrap.unpause()
-      });
+      .on( "focus", ".mousetrap-pause", Mousetrap.pause)
+      .on( "blur", ".mousetrap-pause",  Mousetrap.unpause)
 
     this.hasUnsavedChanges = false
     this.permissions = permissions
