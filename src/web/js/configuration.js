@@ -10,6 +10,10 @@ export default {
   },
 
   backend: {
+    shared: {
+      get:   sha  => `../sheets/shared/get?sha=${sha}`
+    },
+
     user: {
       list:   path  => `../sheets/user/list?path=${path}`,
       get:    file  => `../sheets/user/get?filePath=${file}`,
