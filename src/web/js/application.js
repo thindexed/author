@@ -128,8 +128,9 @@ class Application {
 
 
   fileShare() {
-    let json = this.document.toJSON()
-    storage.saveFile(json, "unused", "shared")
+    let filePath = this.currentFile.name
+    let scope = this.currentFile.scope
+    storage.shareFile(filePath,scope)
       .then(( response) => {
         let file = response.data.filePath
         shareDialog.show(file)
