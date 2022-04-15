@@ -66,6 +66,9 @@
       }
       &:hover{
         background-color: rgba(248, 248, 248, 0.6);
+        .page_action {
+          visibility: initial;
+        }
       }
       .fa{
         padding:4px;
@@ -76,15 +79,16 @@
           box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14);
         }
       }
-      .page_delete{
+      .page_action {
         position: absolute;
-        right: 0px;
         top: 10px;
+        visibility: hidden;
+      }
+      .page_delete{
+        right: 0px;
       }
       .page_edit_name{
-        position: absolute;
         right: 20px;
-        top: 10px;
       }
     }
   }

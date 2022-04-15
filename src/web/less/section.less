@@ -8,7 +8,7 @@
     margin-left:20px;
     margin-right:20px;
     cursor: pointer;
-    border-left: 1px solid transparent;
+    border: 1px solid transparent;
     padding-left:3px;
 
     &.error {
@@ -17,9 +17,9 @@
 
     &:hover{
       background-color: rgba(0,0,0,0.01);
-      border-left: 1px solid rgba(0,0,0,0.1);
+      border: 1px solid rgba(0,0,0,0.1);
       .sectionContent[data-type='spacer'] {
-        .tinyFlyoverMenu{
+        .material-button{
           visibility:visible !important;
         }
       }
@@ -86,14 +86,10 @@
       }
       &[data-type='spacer']{
         position: relative;
-        height:30px;
+        height:36px;
         text-align: center;
-        .tinyFlyoverMenu{
+        .material-button{
           visibility:hidden;
-          font-size:15px;
-          position: relative;
-          display: inline-block;
-          top: 0px;
           &::before{
             padding-right:5px;
           }

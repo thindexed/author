@@ -304,9 +304,9 @@ export default class View {
     this.html.find(".sections").append(`
         <div class='section'>
           <div class='sectionContent ' data-type="spacer" >
-            <div data-index="${index}" id="sectionMenuInsertMarkdown"  class='tinyFlyoverMenu fa fa-plus-square-o' >Text</div>
-            <div data-index="${index}" id="sectionMenuInsertBrain"     class='tinyFlyoverMenu fa fa-plus-square-o' >Diagram</div>
-            <div data-index="${index}" id="sectionMenuInsertImage"     class='tinyFlyoverMenu fa fa-plus-square-o' >Picture</div>
+            <div data-index="${index}" id="sectionMenuInsertMarkdown"  class='material-button' ><i class="fa fa-plus-square-o"></i> Text</div>
+            <div data-index="${index}" id="sectionMenuInsertBrain"     class='material-button' ><i class="fa fa-plus-square-o"></i> Diagram</div>
+            <div data-index="${index}" id="sectionMenuInsertImage"     class='material-button' ><i class="fa fa-plus-square-o"></i> Picture</div>
           </div>
         </div>
       `)
