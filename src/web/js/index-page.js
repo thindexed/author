@@ -42,10 +42,8 @@ function renderImage(container, section){
 
 $(window).load(function () {
   let containerId = "#authorContent"
-  let token = getParam("token")
-  let globalSheet = getParam("global")
-  let userSheet = getParam("user")
-  let url = userSheet ? `../api/user/sheet/get?filePath=${userSheet}&token=${token}` : `../api/global/sheet/get?filePath=${globalSheet}&token=${token}`
+  let sha = getParam("sha")
+  let url = `../sheets/shared/get?sha=${sha}`
 
   axios.get(url)
     .then((response => {
