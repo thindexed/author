@@ -46,7 +46,9 @@
     #paletteFilter {
       .toc {
         padding: 5px;
-        padding-top:8px;
+        padding-top:0px;
+        margin-top:20px;
+        line-height:30px;
       }
     }
   }
@@ -111,7 +113,7 @@
   top: unit(@leftPaneTitleHeight, px) !important;
 }
 
-#paletteFilter.pages {
+#paletteFilter.pages{
   box-shadow: none !important;
   top: 64px !important;
   padding:0 !important;
@@ -120,4 +122,15 @@
   right: 0 !important;
   text-align: left !important;
   position: relative !important;
+
+  #documentPageAdd {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 7px;
+    min-width: auto;
+    line-height: initial;
+    margin-left: 16px;
+    float:right;
+  }
 }

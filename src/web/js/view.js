@@ -157,7 +157,7 @@ export default class View {
     // commit the current changes if an editor is active
     this.onCommitEdit()
 
-    inputPrompt.show("Add Page", "Page name", value => {
+    inputPrompt.show("Add new Chapter", "Chapter name").then( value => {
       commandStack.push(new State(this.app))
       let page = new Page()
       page.name = value
