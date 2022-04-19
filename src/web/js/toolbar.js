@@ -1,5 +1,8 @@
 import commandStack from "./commands/CommandStack"
 
+import conf from "./configuration"
+let storage = require('../common/js/BackendStorage').default(conf)
+
 export default class Toolbar {
 
   constructor(app, view, elementId, permissions) {
@@ -38,11 +41,20 @@ export default class Toolbar {
             ||
             (file.scope === "user" && permissions.sheets.update === true))) {
           // File must be save before sharing
-          app.fileSave("File must be saved before you can export it to PDF").then(() => {
-            window.open(`../api/${file.scope}/sheet/pdf?file=${file.name}`, "__blank")
+          app.fileSave("File must be saved before you can export it to PDF")
+          .then( ()=>{
+            return storage.shareFile(file.name,file.scope)
+          })
+          .then((response) => {
+            let filePath = response.data.filePath
+            window.open(`../sheets/${file.scope}/pdf?share=${filePath}`, "__blank")
           })
         } else {
-          window.open(`../api/${file.scope}/sheet/pdf?file=${file.name}`, "__blank")
+          storage.shareFile(file.name,file.scope)
+          .then((response)=>{
+            let filePath = response.data.filePath
+            window.open(`../sheets/${file.scope}/pdf?share=${filePath}`, "__blank")
+          })
         }
       })
     } else {
