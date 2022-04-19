@@ -47,13 +47,13 @@ export default class Toolbar {
           })
           .then((response) => {
             let filePath = response.data.filePath
-            window.open(`../sheets/${file.scope}/pdf?share=${filePath}`, "__blank")
+            window.open(`../sheets/pdf?sha=${filePath}`, "__blank")
           })
         } else {
           storage.shareFile(file.name,file.scope)
           .then((response)=>{
             let filePath = response.data.filePath
-            window.open(`../sheets/${file.scope}/pdf?share=${filePath}`, "__blank")
+            window.open(`../sheets/pdf?sha=${filePath}`, "__blank")
           })
         }
       })
