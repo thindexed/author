@@ -49,27 +49,6 @@ export default class Toolbar {
       this.pdfButton.hide()
     }
 
-    /////////////////////////////////////////////
-    // Editor Operations
-    //
-    this.addTextButton = $("#addTextSection")
-    this.addTextButton.off("click").on("click", () => {
-      this.addTextButton.tooltip("hide")
-      this.view.addMarkdown()
-    })
-
-    this.addBrainButton = $("#addBrainSection")
-    this.addBrainButton.off("click").on("click", () => {
-      this.addBrainButton.tooltip("hide")
-      this.view.addBrain()
-    })
-
-    this.addImageButton = $("#addImageSection")
-    this.addImageButton.off("click").on("click", () => {
-      this.addImageButton.tooltip("hide")
-      this.view.addImage()
-    })
-
     // enable the tooltip for all buttons
     //
     $('*[data-toggle="tooltip"]').tooltip({
@@ -115,17 +94,11 @@ export default class Toolbar {
 
     if(this.app.hasModifyPermissionForCurrentFile()){
       $("#editUndo, #editRedo").show()
-      this.addImageButton.show()
-      this.addBrainButton.show()
-      this.addTextButton.show()
       this.pdfButton.show()
       this.saveButton.show()
     }
     else{
       $("#editUndo, #editRedo").hide()
-      this.addImageButton.hide()
-      this.addBrainButton.hide()
-      this.addTextButton.hide()
       this.pdfButton.hide()
       this.saveButton.hide()
     }
