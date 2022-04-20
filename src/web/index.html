@@ -178,12 +178,12 @@
   -->
 <script id="shapeTemplate" type="text/x-jsrender">
 {{#shapes}}
-    <div  data-name='{{name}}'  data-file='{{filePath}}'  data-path="{{filePath}}" class="mix col-md-6 palette_item">
-      <div>
-          <img data-shape="{{name}}" data-file='{{filePath}}' data-path="{{filePath}}" class="draw2d_droppable" src="{{shapesUrl}}{{image}}"/>
-          <div>{{basename}}</div>
-      </div>
+  <div  data-name='{{name}}'  data-scope='{{scope}}'  data-file='{{shapePath}}'  data-dir="{{basedir}}"  class="mix palette_item">
+    <div>
+        <img data-name="{{name}}"  data-scope='{{scope}}' data-file='{{shapePath}}' class="draw2d_droppable" src="{{imageUrl}}"/>
+        <div>{{displayName}}</div>
     </div>
+  </div>
 {{/shapes}}
 </script>
 

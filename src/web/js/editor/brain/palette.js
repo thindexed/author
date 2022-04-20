@@ -20,13 +20,13 @@ export default class Palette {
     $("#paletteElementsScroll, #paletteFilter").removeClass("pages")
 
     this.view = view
-    $.getJSON(conf.shapes.url + "index.json", (data) => {
-      conf.shapes.version = data[0].version
+    $.getJSON(conf.shapes.jsonUrl, (data) => {
       let tmpl = Hogan.compile($("#shapeTemplate").html());
-      let html = tmpl.render({
-        shapesUrl: conf.shapes.url,
-        shapes: data
+      data = data.map( shape=> {
+        shape.imageUrl = conf.shapes[shape.scope].image(shape.imagePath)
+        return shape
       })
+      let html = tmpl.render({ shapes: data })
 
       $(id).html(html)
       this.buildTree(data)
@@ -118,16 +118,12 @@ export default class Palette {
         $(".tree-leaf-content").removeClass("selected")
         let target = $(event.currentTarget)
         target.addClass("selected")
-        let path = target.data("item").path
-        let $grid = $("#paletteElements");
+        let path = target.data("item").path.toLowerCase()
+        let $grid = $("#paletteElements")
 
         $grid.shuffle('shuffle', function ($el, shuffle) {
-          let text = $.trim($el.data("path")).toLowerCase();
-          if (text === "_request_")
-            return true
-
-          return text.startsWith(path)
-        });
+          return $el.data("dir").trim().toLowerCase()===path
+        })
 
         return false
       }

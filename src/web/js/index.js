@@ -67,8 +67,8 @@ $(window).load(function () {
 
     // we must load the "shape/index.js" in the global scope.
     //
-    var s = document.createElement("script");
-    s.setAttribute("src",conf.shapes.url + "index.js");
+    var s = document.createElement("script")
+    s.setAttribute("src",conf.shapes.jsUrl)
     s.onload = function(){
       app = require("./application").default
       app.init(permissions)
@@ -77,6 +77,6 @@ $(window).load(function () {
       })
       inlineSVG.init()
     }
-    document.head.appendChild(s);
+    document.head.appendChild(s)
   })
 })

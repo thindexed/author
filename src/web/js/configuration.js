@@ -38,8 +38,14 @@ export default {
   },
 
   shapes: {
-    url: "../shapes/",
-    version: "0.0.0" // updated during after loading from the index.json file
+    jsUrl:     "../shapes/index.js",
+    jsonUrl:   "../shapes/index.json",
+    user: {
+      image:  file => `../shapes/user/get?filePath=${file}`,
+    },
+    global :{
+      image:  file => `../shapes/global/get?filePath=${file}`,
+    },
   },
 
   color: {

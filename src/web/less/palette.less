@@ -9,7 +9,12 @@
   border-left: 1px solid rgba(74, 74, 74, 0.5);
 
   .palette_item{
-    padding:0px;
+    padding:0;
+    text-align:center;
+    width: unit( (@leftPaneWidth / 2) , px);
+    height: unit( (@leftPaneWidth / 2) , px);
+    border: 1px solid #f0f0f0;
+
     >div{
       width:100%;
       height:100%;
@@ -17,7 +22,7 @@
       border:1px solid transparent;
       img{
         position: absolute;
-        top: 0px;
+        top: 0;
         bottom: 0;
         margin: auto;
         left: 50%;
