@@ -87,6 +87,7 @@ export default class Toolbar {
   stackChanged(event) {
     this.pdfButton.hide()
     this.shareButton.hide()
+    
     // check the permission if the current file is "user" scope
     if(this.app.getDocument() !==null) {
       if (this.app.currentFile.scope === "user") {
